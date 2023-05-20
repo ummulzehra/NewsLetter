@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require('dotenv').config();
 
 
 const app = express();
@@ -39,7 +40,7 @@ const url = "https://us21.api.mailchimp.com/3.0/lists/c5baa2b895"
 
 const options = {
   method: "POST",
-  auth: "ummul:a5fe5e23c9672492caa5ac534c033814-us21"
+  auth: `ummul:${process.env.API_KEY}`
 }
 
 const request = https.request(url, options, function(response){
